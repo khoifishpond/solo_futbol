@@ -4,44 +4,32 @@ module Leagueable
   end
 
   def best_offense
-    team = @teams.find do |team|
-      team.team_id == team_id_best_offense
-    end
+    team = @teams.find { |team| team.team_id == team_id_best_offense}
     team.team_name
   end
 
   def worst_offense
-    team = @teams.find do |team|
-      team.team_id == team_id_worst_offense
-    end
+    team = @teams.find { |team| team.team_id == team_id_worst_offense}
     team.team_name
   end
 
   def highest_scoring_visitor
-    team = @teams.find do |team|
-      team.team_id == team_id_highest_average_score_away
-    end
+    team = @teams.find { |team| team.team_id == team_id_highest_average_score_away}
     team.team_name
   end
 
   def highest_scoring_home_team
-    team = @teams.find do |team|
-      team.team_id == team_id_highest_average_score_home
-    end
+    team = @teams.find { |team| team.team_id == team_id_highest_average_score_home}
     team.team_name
   end
 
   def lowest_scoring_visitor
-    team = @teams.find do |team|
-      team.team_id == team_id_lowest_average_score_away
-    end
+    team = @teams.find { |team| team.team_id == team_id_lowest_average_score_away}
     team.team_name
   end
 
   def lowest_scoring_home_team
-    team = @teams.find do |team|
-      team.team_id == team_id_lowest_average_score_home
-    end
+    team = @teams.find { |team| team.team_id == team_id_lowest_average_score_home}
     team.team_name
   end
 
@@ -125,8 +113,6 @@ module Leagueable
   end
 
   def hash_team_id_games
-    @game_teams.group_by do |game_team|
-      game_team.team_id
-    end
+    @game_teams.group_by { |game_team| game_team.team_id}
   end
 end

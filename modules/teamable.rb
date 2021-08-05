@@ -11,9 +11,7 @@ module Teamable
   end
 
   def get_team_with_id(team_id)
-    @teams.find do |team|
-      team.team_id == team_id
-    end
+    @teams.find { |team| team.team_id == team_id}
   end
 
   def best_season(team_id)
@@ -117,9 +115,7 @@ module Teamable
   end
 
   def hash_game_teams_by_team_id
-    @game_teams.group_by do |game_team|
-      game_team.team_id
-    end
+    @game_teams.group_by { |game_team| game_team.team_id}
   end
 
   def hash_season_games_won_percentage_by_team_id(team_id)
@@ -134,9 +130,7 @@ module Teamable
   end
 
   def hash_games_by_season(team_id)
-    array_games_by_team_id(team_id).group_by do |game|
-      game.season
-    end
+    array_games_by_team_id(team_id).group_by { |game| game.season}
   end
 
   def array_games_by_team_id(team_id)
